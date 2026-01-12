@@ -10,7 +10,7 @@ const About = () => {
     { key: 'projects', icon: Briefcase, end: 10, label: 'Projects Completed', suffix: '+' },
     { key: 'certificates', icon: Award, end: 10, label: 'Certificates', suffix: '+' },
     { key: 'technologies', icon: Code2, end: 10, label: 'Technologies', suffix: '+' },
-    { key: 'leetcode que', icon: Terminal, end: 130, label: 'Leetcode Que', suffix: '+' }
+    { key: 'leetcode que', icon: Terminal, end: 150, label: 'Leetcode Que', suffix: '+' }
   ];
 
   const interests = [

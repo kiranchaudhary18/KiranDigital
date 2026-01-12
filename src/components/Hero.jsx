@@ -107,7 +107,7 @@ const Hero = () => {
           {[
             { number: '10+', label: 'Projects Done', icon: Briefcase },
             { number: '10+', label: 'Certificates', icon: Award },
-            { number: '10+', label: 'Technologies', icon: Code2 },            { number: '5+', label: 'Hackathons', icon: Trophy },            { number: '130+', label: 'Leetcode Que', icon: Terminal },
+            { number: '10+', label: 'Technologies', icon: Code2 },            { number: '5+', label: 'Hackathons', icon: Trophy },            { number: '150+', label: 'Leetcode Que', icon: Terminal },
           ].map((stat, index) => {
             const Icon = stat.icon;
             return (

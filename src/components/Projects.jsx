@@ -21,10 +21,32 @@ const Projects = () => {
     
     // Convert Google Drive share link to embed link
     let embedUrl = videoUrl;
+
+    // Google Drive file link -> preview embed
     if (videoUrl.includes('drive.google.com/file/d/')) {
       const fileId = videoUrl.match(/\/d\/(.+?)\//)?.[1] || videoUrl.split('/d/')[1]?.split('/')[0];
       embedUrl = `https://drive.google.com/file/d/${fileId}/preview`;
     }
+
+    // YouTube short link (youtu.be/ID) -> embed
+    else if (videoUrl.includes('youtu.be/')) {
+      const id = videoUrl.split('youtu.be/')[1].split(/[?&]/)[0];
+      embedUrl = `https://www.youtube.com/embed/${id}`;
+    }
+
+    // YouTube watch link (youtube.com/watch?v=ID) -> embed
+    else if (videoUrl.includes('youtube.com/watch')) {
+      const match = videoUrl.match(/[?&]v=([^&]+)/);
+      const id = match?.[1];
+      if (id) embedUrl = `https://www.youtube.com/embed/${id}`;
+    }
+
+    // If the URL already looks like an embed or is a plain http(s) link, keep it.
+    // Append autoplay for YouTube embeds so users see immediate playback if desired.
+    if (embedUrl.includes('youtube.com/embed/') && !embedUrl.includes('autoplay')) {
+      embedUrl = `${embedUrl}${embedUrl.includes('?') ? '&' : '?'}autoplay=1`;
+    }
+
     setCurrentVideoUrl(embedUrl);
   };
 
@@ -66,7 +88,7 @@ const Projects = () => {
       liveUrl: 'https://forever-in.onrender.com/',
       codeUrl: 'https://github.com/kiranchaudhary18/Ecommerce-app',
       apiDocsUrl: 'https://documenter.getpostman.com/view/39216531/2sBXVeFXoG',
-      demoVideoUrl: '#'
+      demoVideoUrl: 'https://youtu.be/d-qHYIlwKHE'
     },
     {
       title: 'GearGuard  - Hackathon Project',
