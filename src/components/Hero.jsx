@@ -36,7 +36,7 @@ const Hero = () => {
   }, [displayText, isDeleting, currentRoleIndex]);
 
   const handleDownloadResume = () => {
-    window.open('https://drive.google.com/file/d/1CPyIkqdZCBqrM33VJAOdI8GIz5SS-U65/view?usp=drive_link', '_blank');
+    window.open('https://drive.google.com/file/d/1ixuvV_AFNlaYOkrP_Aurwzy_jZmLRUrR/view?usp=sharing', '_blank');
   };
 
   const scrollToProjects = () => {
