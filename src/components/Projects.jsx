@@ -74,7 +74,7 @@ const Projects = () => {
       description: 'Developed a role-based healthcare web application featuring separate dashboards for Doctors, Patients, and Students. Included real-time chat, appointment management, analytics, and an AI assistant to enhance user interaction and learning experience',
       image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=500&h=300&fit=crop',
       tech: ['React', 'Node.js', 'Express.js', 'MongoDB', 'Tailwind CSS', 'Jwt'],
-      liveUrl: 'https://mediconnect-in.onrender.com/',
+      liveUrl: 'https://www.mediconnecthub.in/',
       codeUrl: 'https://github.com/kiranchaudhary18/MediConnect',
       apiDocsUrl: 'https://documenter.getpostman.com/view/39216531/2sB3dVNTGX',
       demoVideoUrl: '#'
