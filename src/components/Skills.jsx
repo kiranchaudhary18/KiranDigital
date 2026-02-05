@@ -16,6 +16,7 @@ const Skills = () => {
         { name: 'CSS3', level: 90,  icon: '🎨' },
         { name: 'JavaScript', level: 92,  icon: '⚡' },
         { name: 'React', level: 88,  icon: '⚛️' },
+        { name: 'Next.js', level: 82, icon: '▲' },
         { name: 'Tailwind CSS', level: 85, icon: '💨' },
         
       ]
@@ -25,12 +26,17 @@ const Skills = () => {
       icon: Server,
       color: 'from-secondary to-pink-600',
       skills: [
-        { name: 'Node.js', level: 85, icon: '🟢' },
-        { name: 'Express.js', level: 83, icon: '🚂' },
-        { name: 'MongoDB', level: 80, icon: '🍃' },
-        { name: 'MySQL', level: 75,  icon: '🐬' },
-        { name: 'REST APIs', level: 88, icon: '🔌' }
-      ]
+  { name: 'Node.js', level: 85, icon: '🟢' },
+  { name: 'Express.js', level: 83, icon: '🚂' },
+  { name: 'MongoDB', level: 80, icon: '🍃' },
+  { name: 'MySQL', level: 75, icon: '🐬' },
+  { name: 'REST APIs', level: 88, icon: '🔌' },
+
+  { name: 'PostgreSQL', level: 78, icon: '🐘' },
+  { name: 'Prisma', level: 76, icon: '🔷' },
+  { name: 'Supabase', level: 74, icon: '🧩' }
+]
+
     },
     {
       title: 'Tools & Technologies',

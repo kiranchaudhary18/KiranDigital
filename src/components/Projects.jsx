@@ -85,9 +85,20 @@ const Projects = () => {
       description: 'A modern full-stack fashion e-commerce application featuring dynamic product filtering, responsive layouts, consistent image handling, and a complete product detail and cart flow.',
       image: 'https://res.cloudinary.com/dnbayngfx/image/upload/v1767986615/Gemini_Generated_Image_h1dvxih1dvxih1dv_jd4a1i.png',
       tech: ['React', 'Node.js', 'Express.js', 'MongoDB', 'Tailwind CSS', 'Jwt', 'Stripe', 'Razorpay'],
-      liveUrl: 'https://forever-in.onrender.com/',
+      liveUrl: 'https://forever360.in/',
       codeUrl: 'https://github.com/kiranchaudhary18/Ecommerce-app',
       apiDocsUrl: 'https://documenter.getpostman.com/view/39216531/2sBXVeFXoG',
+      demoVideoUrl: 'https://youtu.be/d-qHYIlwKHE'
+    },
+    {
+      title: 'ConvoHub — Real-Time Chat & Group Communication Platform',
+      category: 'MERN',
+      description: 'A modern full-stack real-time chat application featuring one-to-one and group messaging, live message delivery with WebSockets, secure authentication, interactive SaaS-style UI, and an email-based user invite system.',
+      image: 'https://res.cloudinary.com/dnbayngfx/image/upload/v1770270006/Gemini_Generated_Image_u5hcjsu5hcjsu5hc_dikn5v.png',
+      tech: ['Next.js', 'Node.js', 'Express.js', 'MongoDB', 'Socket.IO', 'Tailwind CSS', 'JWT'],
+      liveUrl: 'https://www.convohub.in/',
+      codeUrl: 'https://github.com/kiranchaudhary18/ConvoHub',
+      apiDocsUrl: 'https://documenter.getpostman.com/view/39216531/2sBXc8nhpT',
       demoVideoUrl: 'https://youtu.be/d-qHYIlwKHE'
     },
     {
