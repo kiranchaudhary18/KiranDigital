@@ -280,10 +280,10 @@ const Projects = () => {
             const isFlipped = flippedCards.includes(index)
             
             return (
-              <article
+              <div
                 key={index}
                 role="listitem"
-                className="project-card h-96 [perspective:1000px]"
+                className="project-card h-96"
                 data-card-index={index}
                 style={{ animationDelay: `${index * 0.1}s` }}
                 onMouseEnter={() => setFlip(index, true)}
@@ -433,9 +433,8 @@ const Projects = () => {
                   </div>
                 </div>
               </div>
-            </article>
-          )
-        })}
+            )
+          })}
         </div>
       </div>
 
