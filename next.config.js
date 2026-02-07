@@ -42,9 +42,6 @@ const nextConfig = {
   generateEtags: true,
   trailingSlash: false,
   
-  // Enable SWC minification
-  swcMinify: true,
-  
   // Bundle optimization
   modularizeImports: {
     'lucide-react': {
