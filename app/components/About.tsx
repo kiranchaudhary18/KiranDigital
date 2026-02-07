@@ -115,7 +115,7 @@ const About = () => {
                   </div>
                 ))}
               </div>
-            </div>
+            </article>
           </div>
 
           {/* Right: Stats */}

@@ -290,16 +290,20 @@ const Projects = () => {
                 onMouseLeave={() => setFlip(index, false)}
               >
                 <div
-                  className={`relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] ${
-                    isFlipped ? '[transform:rotateY(180deg)]' : ''
+                  className={`relative w-full h-full transition-transform duration-700 ${
+                    isFlipped ? 'rotate-y-180' : ''
                   }`}
+                  style={{ 
+                    transformStyle: 'preserve-3d',
+                    transform: isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)'
+                  }}
                 >
                   {/* Front Face */}
-                  <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] glass-effect rounded-2xl overflow-hidden shadow-xl">
+                  <div className="absolute inset-0 w-full h-full glass-effect rounded-2xl overflow-hidden shadow-xl" style={{ backfaceVisibility: 'hidden' }}>
                     <div className="relative h-48 overflow-hidden">
                       <Image
                         src={project.image}
-                        alt={`${project.title} - ${project.category} project screenshot showing ${project.description.slice(0, 100)}`}
+                        alt={`${project.title} screenshot - ${project.category} project`}
                         width={400}
                         height={192}
                         className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
@@ -340,7 +344,10 @@ const Projects = () => {
                   </div>
 
                   {/* Back Face */}
-                  <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] glass-effect rounded-2xl overflow-hidden shadow-xl bg-gradient-to-br from-primary/10 to-secondary/10">
+                  <div 
+                    className="absolute inset-0 w-full h-full glass-effect rounded-2xl overflow-hidden shadow-xl bg-gradient-to-br from-primary/10 to-secondary/10"
+                    style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
+                  >
                     <div className="p-6 h-full flex flex-col justify-between">
                       <div>
                         <h3 className="text-xl font-bold text-textPrimary mb-3">
@@ -426,8 +433,9 @@ const Projects = () => {
                   </div>
                 </div>
               </div>
-            )
-          })}
+            </article>
+          )
+        })}
         </div>
       </div>
 

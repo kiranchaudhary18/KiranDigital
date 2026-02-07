@@ -155,7 +155,7 @@ const Skills = () => {
                     )
                   })}
                 </div>
-              </div>
+              </article>
             )
           })}
         </div>

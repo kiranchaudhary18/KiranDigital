@@ -2,7 +2,7 @@
 const nextConfig = {
   // Enable experimental optimizations
   experimental: {
-    optimizePackageImports: ['lucide-react', '@next/font'],
+    // Removed optimizePackageImports for lucide-react to fix build issues
   },
   
   // Image optimization for better Core Web Vitals
@@ -42,12 +42,6 @@ const nextConfig = {
   generateEtags: true,
   trailingSlash: false,
   
-  // Bundle optimization
-  modularizeImports: {
-    'lucide-react': {
-      transform: 'lucide-react/dist/esm/icons/{{member}}',
-    },
-  },
   async headers() {
     return [
       {
