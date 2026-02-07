@@ -57,14 +57,14 @@ const About = () => {
   }
 
   return (
-    <section id="about" ref={sectionRef} className="py-20 px-6 relative">
+    <section id="about" ref={sectionRef} className="py-20 px-6 relative" aria-labelledby="about-heading">
       {/* Section Divider */}
-      <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-primary to-secondary rounded-full"></div>
+      <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-primary to-secondary rounded-full" aria-hidden="true"></div>
 
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-textPrimary mb-4">
+          <h2 id="about-heading" className="text-4xl md:text-5xl font-bold text-textPrimary mb-4">
             About <span className="text-gradient">Me</span>
           </h2>
           <p className="text-textSecondary text-lg max-w-2xl mx-auto">
@@ -76,9 +76,9 @@ const About = () => {
           {/* Left: About Content */}
           <div className="space-y-6">
             {/* Introduction */}
-            <div className="glass-effect p-8 rounded-2xl">
+            <article className="glass-effect p-8 rounded-2xl">
               <h3 className="text-2xl font-semibold text-textPrimary mb-4 flex items-center gap-3">
-                <Users className="text-primary" size={28} />
+                <Users className="text-primary" size={28} aria-hidden="true" />
                 Who I Am
               </h3>
               <p className="text-textSecondary leading-relaxed mb-4">
@@ -90,12 +90,12 @@ const About = () => {
                 I believe in writing clean, efficient code and am always excited about new challenges and opportunities 
                 to make a meaningful impact.
               </p>
-            </div>
+            </article>
 
             {/* Interests */}
-            <div className="glass-effect p-8 rounded-2xl">
+            <article className="glass-effect p-8 rounded-2xl">
               <h3 className="text-2xl font-semibold text-textPrimary mb-6 flex items-center gap-3">
-                <BookOpen className="text-secondary" size={28} />
+                <BookOpen className="text-secondary" size={28} aria-hidden="true" />
                 My Interests
               </h3>
               <div className="grid grid-cols-2 gap-4">

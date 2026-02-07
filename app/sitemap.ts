@@ -1,48 +1,51 @@
 import { MetadataRoute } from 'next'
  
 export default function sitemap(): MetadataRoute.Sitemap {
+  const baseUrl = 'https://kirandekaliya.in'
+  const currentDate = new Date()
+  
   return [
     {
-      url: 'https://kirandekaliya.vercel.app',
-      lastModified: new Date(),
-      changeFrequency: 'yearly',
-      priority: 1,
-    },
-    {
-      url: 'https://kirandekaliya.vercel.app#about',
-      lastModified: new Date(),
+      url: baseUrl,
+      lastModified: currentDate,
       changeFrequency: 'monthly',
-      priority: 0.8,
+      priority: 1.0,
     },
     {
-      url: 'https://kirandekaliya.vercel.app#education',
-      lastModified: new Date(),
+      url: `${baseUrl}#about`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}#education`,
+      lastModified: currentDate,
       changeFrequency: 'yearly',
       priority: 0.7,
     },
     {
-      url: 'https://kirandekaliya.vercel.app#skills',
-      lastModified: new Date(),
+      url: `${baseUrl}#skills`,
+      lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
-      url: 'https://kirandekaliya.vercel.app#projects',
-      lastModified: new Date(),
+      url: `${baseUrl}#projects`,
+      lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
-      url: 'https://kirandekaliya.vercel.app#certificates',
-      lastModified: new Date(),
+      url: `${baseUrl}#certificates`,
+      lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.7,
     },
     {
-      url: 'https://kirandekaliya.vercel.app#contact',
-      lastModified: new Date(),
+      url: `${baseUrl}#contact`,
+      lastModified: currentDate,
       changeFrequency: 'yearly',
-      priority: 0.6,
+      priority: 0.8,
     },
   ]
 }

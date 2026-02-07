@@ -30,9 +30,14 @@ export default function HomePage() {
     <div className="dark">
       <div className="bg-darkBg min-h-screen text-textPrimary">
         <CursorTrail />
-        <Sidebar />
         
-        <main className="ml-0 md:ml-[100px] transition-all duration-300">
+        {/* Header/Navigation */}
+        <header role="banner">
+          <Sidebar />
+        </header>
+        
+        {/* Main Content */}
+        <main className="ml-0 md:ml-[100px] transition-all duration-300" role="main">
           <Hero />
           <About />
           <Education />
@@ -42,6 +47,7 @@ export default function HomePage() {
           <Contact />
         </main>
         
+        {/* Utility Components */}
         <ScrollToTop />
       </div>
     </div>

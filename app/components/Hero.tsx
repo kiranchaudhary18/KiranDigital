@@ -47,12 +47,12 @@ const Hero = () => {
   }
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden" role="banner">
       {/* Animated Gradient Background */}
-      <div className="absolute inset-0 gradient-bg opacity-20"></div>
+      <div className="absolute inset-0 gradient-bg opacity-20" aria-hidden="true"></div>
       
       {/* Floating Geometric Shapes */}
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
         <div className="absolute top-20 left-20 w-32 h-32 border-4 border-primary/30 rounded-full animate-float" style={{ animationDelay: '0s' }}></div>
         <div className="absolute top-40 right-32 w-24 h-24 border-4 border-secondary/30 rotate-45 animate-float" style={{ animationDelay: '2s' }}></div>
         <div className="absolute bottom-32 left-40 w-28 h-28 border-4 border-accent/30 animate-float" style={{ animationDelay: '4s' }}></div>
@@ -64,21 +64,21 @@ const Hero = () => {
       <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
         {/* Greeting */}
         <div className="flex items-center justify-center gap-2 mb-4 animate-fade-in">
-          <Sparkles className="text-primary animate-pulse" size={20} />
+          <Sparkles className="text-primary animate-pulse" size={20} aria-hidden="true" />
           <p className="text-textSecondary text-lg">Hello, I'm</p>
         </div>
 
-        {/* Name */}
+        {/* Name - Main H1 */}
         <h1 className="text-6xl md:text-8xl font-bold mb-6 animate-slide-down">
           <span className="text-gradient">Kiran Dekaliya</span>
         </h1>
 
-        {/* Typing Animation */}
+        {/* Typing Animation - Subtitle */}
         <div className="h-16 mb-8 flex items-center justify-center">
-          <h2 className="text-2xl md:text-4xl font-semibold text-textPrimary">
+          <p className="text-2xl md:text-4xl font-semibold text-textPrimary" role="banner" aria-live="polite">
             {displayText}
-            <span className="animate-pulse">|</span>
-          </h2>
+            <span className="animate-pulse" aria-hidden="true">|</span>
+          </p>
         </div>
 
         {/* Description */}

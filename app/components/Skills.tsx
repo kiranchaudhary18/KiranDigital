@@ -89,14 +89,14 @@ const Skills = () => {
   }, [])
 
   return (
-    <section id="skills" ref={sectionRef} className="py-20 px-6 relative">
+    <section id="skills" ref={sectionRef} className="py-20 px-6 relative" aria-labelledby="skills-heading">
       {/* Section Divider */}
-      <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-accent to-primary rounded-full"></div>
+      <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-accent to-primary rounded-full" aria-hidden="true"></div>
 
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-textPrimary mb-4">
+          <h2 id="skills-heading" className="text-4xl md:text-5xl font-bold text-textPrimary mb-4">
             My <span className="text-gradient">Skills</span>
           </h2>
           <p className="text-textSecondary text-lg max-w-2xl mx-auto">
@@ -109,14 +109,14 @@ const Skills = () => {
           {skillCategories.map((category, categoryIndex) => {
             const Icon = category.icon
             return (
-              <div
+              <article
                 key={categoryIndex}
                 className="glass-effect p-8 rounded-2xl hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500"
               >
                 {/* Category Header */}
                 <div className="flex items-center gap-4 mb-8">
                   <div className={`p-4 rounded-xl bg-gradient-to-br ${category.color} shadow-lg`}>
-                    <Icon size={32} className="text-white" />
+                    <Icon size={32} className="text-white" aria-hidden="true" />
                   </div>
                   <div>
                     <h3 className="text-2xl font-bold text-textPrimary">{category.title}</h3>

@@ -241,45 +241,48 @@ const Projects = () => {
   }, [filteredProjects, manuallyFlippedCards])
 
   return (
-    <section id="projects" ref={sectionRef} className="py-20 px-6 relative">
+    <section id="projects" ref={sectionRef} className="py-20 px-6 relative" aria-labelledby="projects-heading">
       {/* Section Divider */}
-      <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-primary to-secondary rounded-full"></div>
+      <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-primary to-secondary rounded-full" aria-hidden="true"></div>
 
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 id="projects-heading" className="text-4xl md:text-5xl font-bold mb-4">
             <span className="text-gradient">Featured Projects</span>
           </h2>
           <p className="text-textSecondary text-lg">Explore my recent work and creations</p>
         </div>
 
         {/* Filter Buttons */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
+        <div className="flex flex-wrap justify-center gap-4 mb-12" role="group" aria-labelledby="filter-label">
+          <span id="filter-label" className="sr-only">Filter projects by category:</span>
           {filters.map((filter) => (
             <button
               key={filter}
               onClick={() => setActiveFilter(filter)}
+              aria-pressed={activeFilter === filter}
               className={`px-6 py-3 rounded-full font-medium transition-all duration-300 flex items-center gap-2 ${
                 activeFilter === filter
                   ? 'bg-gradient-to-r from-primary to-secondary text-white shadow-lg shadow-primary/30'
                   : 'glass-effect text-textSecondary hover:text-primary'
               }`}
             >
-              <Filter size={18} />
+              <Filter size={18} aria-hidden="true" />
               {filter}
             </button>
           ))}
         </div>
 
         {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8" role="list">
           {filteredProjects.map((project, index) => {
             const isFlipped = flippedCards.includes(index)
             
             return (
-              <div
+              <article
                 key={index}
+                role="listitem"
                 className="project-card h-96 [perspective:1000px]"
                 data-card-index={index}
                 style={{ animationDelay: `${index * 0.1}s` }}
@@ -296,7 +299,7 @@ const Projects = () => {
                     <div className="relative h-48 overflow-hidden">
                       <Image
                         src={project.image}
-                        alt={project.title}
+                        alt={`${project.title} - ${project.category} project screenshot showing ${project.description.slice(0, 100)}`}
                         width={400}
                         height={192}
                         className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
