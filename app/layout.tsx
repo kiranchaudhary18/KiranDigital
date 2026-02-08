@@ -165,6 +165,7 @@ export default function RootLayout({
                   '@type': 'Person',
                   '@id': 'https://kirandekaliya.in/#person',
                   name: 'Kiran Dekaliya',
+                  alternateName: 'Kiran Chaudhary',
                   jobTitle: 'Full Stack Developer',
                   description: 'Experienced Full Stack Developer specializing in React, Next.js, Node.js, and MongoDB',
                   url: 'https://kirandekaliya.in',
@@ -209,7 +210,7 @@ export default function RootLayout({
                   '@type': 'Organization',
                   '@id': 'https://kirandekaliya.in/#organization',
                   name: 'Kiran Dekaliya',
-                  alternateName: 'Kiran Dekaliya Development',
+                  alternateName: 'Kiran Chaudhary',
                   url: 'https://kirandekaliya.in',
                   logo: {
                     '@type': 'ImageObject',
