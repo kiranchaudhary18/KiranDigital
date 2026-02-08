@@ -39,7 +39,7 @@ const Hero = () => {
   }, [displayText, isDeleting, currentRoleIndex, roles])
 
   const handleDownloadResume = () => {
-    window.open('https://drive.google.com/file/d/1ixuvV_AFNlaYOkrP_Aurwzy_jZmLRUrR/view?usp=sharing', '_blank')
+    window.open('https://drive.google.com/file/d/1NB2zgJeabRM3re5FmL9H0HWTdNxRAJOx/view?usp=sharing', '_blank')
   }
 
   const scrollToProjects = () => {
