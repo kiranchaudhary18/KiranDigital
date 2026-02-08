@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   description: 'Experienced Full Stack Developer specializing in React, Next.js, Node.js, and MongoDB. Creating innovative web applications with modern technologies. Based in India, available for freelance and full-time opportunities.',
   keywords: [
     'Kiran Dekaliya',
+    'Kiran Chaudhary',
     'Full Stack Developer India',
     'React Developer',
     'Next.js Developer', 
