@@ -10,6 +10,25 @@ const Certificates = () => {
   const autoPlayRef = useRef<NodeJS.Timeout | null>(null)
 
   const certificates = [
+
+    {
+      title: 'FedEx SMART Hackathon - Shaastra 2026',
+      organization: 'Indian Institute of Technology (IIT) Madras',
+      date: 'January 2026',
+      credentialId: 'SHAAS-2026-FEDEX-SMART',
+      image: 'https://res.cloudinary.com/dnbayngfx/image/upload/v1772165146/Screenshot_2026-02-27_093117_co2dr3.png',
+      url: 'https://unstop.com/certificate-preview/f020805c-d99b-49b9-b1ec-8c0f41156512'
+    },
+
+    {
+      title: 'Innovate X Hackathon',
+      organization: 'Shyam Lal College, University of Delhi (via Unstop)',
+      date: '2026',
+      credentialId: 'INNOVATEX-2026-HACKATHON',
+      image: 'https://res.cloudinary.com/dnbayngfx/image/upload/v1772165149/Screenshot_2026-02-27_093138_qneyzs.png',
+      url: 'https://unstop.com/certificate-preview/cbaff27f-50fb-4bea-b1ee-1de5b4250619'
+    },
+
     {
       title: 'Github Copilot Fundamentals',
       organization: 'Microsoft',
