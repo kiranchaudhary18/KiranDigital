@@ -132,7 +132,7 @@ const Hero = () => {
             <div className="flex justify-center mb-2">
               <Terminal className="text-primary" size={32} />
             </div>
-            <div className="text-2xl font-bold text-textPrimary">200+</div>
+            <div className="text-2xl font-bold text-textPrimary">250+</div>
             <div className="text-textSecondary">LeetCode</div>
           </div>
         </div>

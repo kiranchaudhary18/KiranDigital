@@ -27,7 +27,7 @@ const Projects = () => {
   const sectionRef = useRef<HTMLElement>(null)
   const isTouchDevice = useRef(false)
 
-  const filters = ['All', 'MERN', 'Other']
+  const filters = ['All', 'MERN', 'React Native', 'Other']
 
   const projects = [
     {
@@ -95,8 +95,18 @@ const Projects = () => {
       codeUrl: 'https://github.com/kiranchaudhary18/code_review_and_bug_finder'
     },
     {
+      title: 'BookNest - Book Management App',
+      category: 'MERN + React Native',
+      description: 'A full-stack mobile app to manage and organize books with authentication, image uploads, and cloud storage.',
+      image: 'https://images.unsplash.com/photo-1512820790803-83ca734da794?w=500&h=300&fit=crop',
+      tech: ['React Native', 'Node.js', 'Express', 'MongoDB', 'Cloudinary'],
+      liveUrl: 'https://github.com/kiranchaudhary18/BookNest/releases/download/v1.0/BookNest.apk',
+      codeUrl: 'https://github.com/kiranchaudhary18/BookNest'
+    },
+
+    {
       title: 'Habit-Tracker',
-      category: 'In this use Supabase',
+      category: 'Other',
       description: 'A React app to search meals, Harry Potter characters, cocktails, and bank info using multiple public APIs — fast and dynamic UI.',
       image: 'https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=500&h=300&fit=crop',
       tech: ['Next.js', 'MongoDB', 'Markdown', 'Auth0'],
@@ -132,7 +142,7 @@ const Projects = () => {
     },
     {
       title: 'Cartoon NetWork',
-      category: 'Clone',
+      category: 'Other',
       description: 'A fun and interactive website clone of the Cartoon Network homepage, built purely with HTML and CSS.',
       image: 'https://res.cloudinary.com/dnbayngfx/image/upload/v1753954396/cartton_evgbvg_1_i43ioq.png',
       tech: ['HTML', 'CSS'],
@@ -141,7 +151,7 @@ const Projects = () => {
     },
     {
       title: 'DigiGold',
-      category: 'Clone',
+      category: 'Other',
       description: 'A clean and modern landing page for a digital gold platform, designed to be fully responsive using HTML and CSS.',
       image: 'https://res.cloudinary.com/dnbayngfx/image/upload/v1753954556/digigold_tijeho_1_um7bq0.png',
       tech: ['HTML', 'CSS'],
@@ -150,7 +160,7 @@ const Projects = () => {
     },
     {
       title: 'CodingGita Clone in FIGMA',
-      category: 'UI/UX',
+      category: 'Other',
       description: 'A UI/UX design prototype for a food delivery application, created with Figma to ensure a seamless user experience.',
       image: 'https://res.cloudinary.com/dnbayngfx/image/upload/v1753956418/codinggita-logo_urbgxt_ocbtxz.png',
       tech: ['FIGMA'],
@@ -194,8 +204,10 @@ const Projects = () => {
       setFilteredProjects(projects)
     } else if (activeFilter === 'MERN') {
       setFilteredProjects(projects.filter(p => p.category === 'MERN'))
+    } else if (activeFilter === 'React Native') {
+      setFilteredProjects(projects.filter(p => p.category === 'React Native'))
     } else if (activeFilter === 'Other') {
-      setFilteredProjects(projects.filter(p => p.category !== 'MERN'))
+      setFilteredProjects(projects.filter(p => p.category === 'Other' || p.category === 'Clone' || p.category === 'UI/UX' || p.category === 'React'))
     }
   }, [activeFilter])
 

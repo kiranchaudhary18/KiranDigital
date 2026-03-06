@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { Home, User, GraduationCap, Code2, Briefcase, Award, Mail, Github, Linkedin, Twitter, Menu, X } from 'lucide-react'
+import { SiLeetcode } from 'react-icons/si'
 
 const Sidebar = () => {
   const [activeSection, setActiveSection] = useState('home')
@@ -21,6 +22,7 @@ const Sidebar = () => {
     { icon: Github, href: 'https://github.com/kiranchaudhary18', label: 'GitHub' },
     { icon: Linkedin, href: 'https://www.linkedin.com/in/chaudharykiran16/', label: 'LinkedIn' },
     { icon: Twitter, href: 'https://x.com/dekaliya_kiran', label: 'Twitter' },
+    { icon: SiLeetcode, href: 'https://leetcode.com/u/KiranChaudhary/', label: 'LeetCode' },
     { icon: Mail, href: 'mailto:kiran.chaudhary.cg@gmail.com', label: 'Email' },
   ]
 

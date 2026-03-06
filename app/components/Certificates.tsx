@@ -12,6 +12,15 @@ const Certificates = () => {
   const certificates = [
 
     {
+       title: 'Hack The Tank 3.0 Hackathon',
+       organization: 'Google Developer Group (GDGC) on Campus, SVNIT Surat',
+       date: '14–15 February 2026',
+       credentialId: 'GDGC-HTT-2026',
+       image: 'https://res.cloudinary.com/dnbayngfx/image/upload/v1772770169/Screenshot_2026-03-05_120418_nrwnb0.png',
+       url: 'https://drive.google.com/file/d/10f9ZzyHaHQzhyaTimltYyJqzeXfojvSN/view?usp=drive_link'
+    },
+
+{
       title: 'FedEx SMART Hackathon - Shaastra 2026',
       organization: 'Indian Institute of Technology (IIT) Madras',
       date: 'January 2026',
