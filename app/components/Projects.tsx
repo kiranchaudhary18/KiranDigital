@@ -95,6 +95,15 @@ const Projects = () => {
       codeUrl: 'https://github.com/kiranchaudhary18/code_review_and_bug_finder'
     },
     {
+      title: 'Expirio - Smart Expiry Tracker',
+      category: 'React Native',
+      description: 'A full-stack mobile app that helps users track expiry dates of products and subscriptions using barcode scanning, reminders, and cloud storage.',
+      image: 'https://images.unsplash.com/photo-1584467735871-8b1a0d8f9c0d?w=500&h=300&fit=crop',
+      tech: ['React Native', 'Node.js', 'Express', 'MongoDB', 'Barcode Scanner', 'Resend Email API'],
+      liveUrl: 'https://github.com/kiranchaudhary18/Expirio/releases/download/Expirio-v1.0.apk/Expirio.apk',
+      codeUrl: 'https://github.com/kiranchaudhary18/Expirio/'
+    },
+    {
       title: 'BookNest - Book Management App',
       category: 'React Native',
       description: 'A full-stack mobile app to manage and organize books with authentication, image uploads, and cloud storage.',
