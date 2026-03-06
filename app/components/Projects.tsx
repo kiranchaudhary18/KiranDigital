@@ -96,7 +96,7 @@ const Projects = () => {
     },
     {
       title: 'BookNest - Book Management App',
-      category: ' React Native',
+      category: 'React Native',
       description: 'A full-stack mobile app to manage and organize books with authentication, image uploads, and cloud storage.',
       image: 'https://images.unsplash.com/photo-1512820790803-83ca734da794?w=500&h=300&fit=crop',
       tech: ['React Native', 'Node.js', 'Express', 'MongoDB', 'Cloudinary'],
