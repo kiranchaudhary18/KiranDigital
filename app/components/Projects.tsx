@@ -98,7 +98,7 @@ const Projects = () => {
       title: 'Expirio - Smart Expiry Tracker',
       category: 'React Native',
       description: 'A full-stack mobile app that helps users track expiry dates of products and subscriptions using barcode scanning, reminders, and cloud storage.',
-      image: 'https://images.unsplash.com/photo-1584467735871-8b1a0d8f9c0d?w=500&h=300&fit=crop',
+      image: 'https://res.cloudinary.com/dnbayngfx/image/upload/v1772776110/Screenshot_2026-03-06_111840_sv9cbj.png',
       tech: ['React Native', 'Node.js', 'Express', 'MongoDB', 'Barcode Scanner', 'Resend Email API'],
       liveUrl: 'https://github.com/kiranchaudhary18/Expirio/releases/download/Expirio-v1.0.apk/Expirio.apk',
       codeUrl: 'https://github.com/kiranchaudhary18/Expirio/'
