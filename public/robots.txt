@@ -7,4 +7,3 @@ Disallow: /_next/static/
 Disallow: /api/
 
 Sitemap: https://kirandekaliya.in/sitemap.xml
-Host: https://kirandekaliya.in
