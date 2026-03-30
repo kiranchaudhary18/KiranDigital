@@ -14,13 +14,14 @@ const Skills = () => {
       icon: Monitor,
       color: 'from-primary to-purple-600',
       skills: [
-        { name: 'HTML5', level: 95, icon: '🌐' },
-        { name: 'CSS3', level: 90, icon: '🎨' },
-        { name: 'JavaScript', level: 92, icon: '⚡' },
-        { name: 'React', level: 88, icon: '⚛️' },
-        { name: 'Next.js', level: 82, icon: '▲' },
-        { name: 'Tailwind CSS', level: 85, icon: '💨' },
-      ]
+  { name: 'HTML5', level: 95, icon: '🌐' },
+  { name: 'CSS3', level: 90, icon: '🎨' },
+  { name: 'JavaScript', level: 92, icon: '⚡' },
+  { name: 'React', level: 88, icon: '⚛️' },
+  { name: 'React Native', level: 85, icon: '📱' },
+  { name: 'Next.js', level: 82, icon: '▲' },
+  { name: 'Tailwind CSS', level: 85, icon: '💨' },
+]
     },
     {
       title: 'Backend',

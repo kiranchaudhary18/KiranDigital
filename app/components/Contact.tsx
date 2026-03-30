@@ -332,6 +332,15 @@ import { SiLeetcode } from "react-icons/si"
               </div>
             </div>
           </div>
+
+          {/* Footer Attribution */}
+          <div className="w-full mt-16 md:mt-20 pt-12 md:pt-16 border-t border-primary/10">
+            <div className="text-center">
+              <p className="text-textSecondary text-sm md:text-base flex items-center justify-center gap-2 md:gap-3 flex-wrap">
+                Made with <span className="text-primary text-xl md:text-2xl animate-pulse">❤️</span> by <span className="font-semibold text-textPrimary text-base md:text-lg">Kiran Dekaliya</span>
+              </p>
+            </div>
+          </div>
         </div>
       </section>
     )
