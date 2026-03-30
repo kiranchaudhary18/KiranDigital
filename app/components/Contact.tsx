@@ -38,10 +38,10 @@ import { SiLeetcode } from "react-icons/si"
     ]
 
  const socialLinks = [
-  { icon: Github, label: 'GitHub', href: 'https://github.com/kiranchaudhary18', color: 'hover:text-gray-300' },
-  { icon: Linkedin, label: 'LinkedIn', href: 'https://www.linkedin.com/in/chaudharykiran16/', color: 'hover:text-blue-400' },
-  { icon: Twitter, label: 'Twitter', href: 'https://x.com/dekaliya_kiran', color: 'hover:text-cyan-400' },
-  { icon: SiLeetcode, label: 'LeetCode', href: 'https://leetcode.com/u/KiranChaudhary/', color: 'hover:text-yellow-400' }
+  { icon: Github, label: 'GitHub', subtitle: '70+ repos', href: 'https://github.com/kiranchaudhary18', color: 'hover:text-gray-300' },
+  { icon: Linkedin, label: 'LinkedIn', subtitle: '5600+ connections', href: 'https://www.linkedin.com/in/chaudharykiran16/', color: 'hover:text-blue-400' },
+  { icon: Twitter, label: 'Twitter', subtitle: 'Tech updates', href: 'https://x.com/dekaliya_kiran', color: 'hover:text-cyan-400' },
+  { icon: SiLeetcode, label: 'LeetCode', subtitle: '300+ problems solved', href: 'https://leetcode.com/u/KiranChaudhary/', color: 'hover:text-yellow-400' }
 ]
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -268,9 +268,9 @@ import { SiLeetcode } from "react-icons/si"
             </div>
 
             {/* Contact Information */}
-            <div className="space-y-8">
+            <div className="space-y-12">
               {/* Contact Details */}
-              <div className="glass p-6 md:p-8 rounded-2xl">
+              <div className="glass p-4 md:p-6 rounded-2xl">
                 <h3 className="text-xl md:text-2xl font-bold text-textPrimary mb-6">Get In Touch</h3>
                 <div className="space-y-6">
                   {contactInfo.map((info, index) => {
@@ -281,12 +281,12 @@ import { SiLeetcode } from "react-icons/si"
                         href={info.href}
                         className="flex items-center gap-4 p-4 bg-black/10 rounded-xl hover:bg-black/20 transition-all group"
                       >
-                        <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
-                          <Icon size={24} className="text-white" />
+                        <div className="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform flex-shrink-0">
+                          <Icon size={30} className="text-white" />
                         </div>
                         <div>
-                          <h4 className="font-semibold text-textPrimary">{info.label}</h4>
-                          <p className="text-textSecondary">{info.value}</p>
+                          <h4 className="font-bold text-textPrimary text-lg">{info.label}</h4>
+                          <p className="text-textSecondary text-base">{info.value}</p>
                         </div>
                       </a>
                     )
@@ -295,9 +295,9 @@ import { SiLeetcode } from "react-icons/si"
               </div>
 
               {/* Social Links */}
-              <div className="glass p-6 md:p-8 rounded-2xl">
+              <div className="glass p-4 md:p-6 rounded-2xl">
                 <h3 className="text-xl md:text-2xl font-bold text-textPrimary mb-6">Follow Me</h3>
-                <div className="flex flex-wrap gap-4">
+                <div className="grid grid-cols-2 gap-4">
                   {socialLinks.map((social, index) => {
                     const Icon = social.icon
                     return (
@@ -306,11 +306,14 @@ import { SiLeetcode } from "react-icons/si"
                         href={social.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={`flex items-center gap-3 px-4 py-3 bg-cardBg rounded-xl text-textSecondary transition-all duration-300 ${social.color} hover:scale-105`}
+                        className={`flex flex-col items-center justify-center gap-1.5 px-4 py-2 bg-white/5 border border-white/10 backdrop-blur-md rounded-xl text-textSecondary transition-all duration-300 hover:bg-white/10 hover:border-white/20 ${social.color} hover:scale-105 shadow-lg shadow-purple-500/5`}
                         title={social.label}
                       >
-                        <Icon size={20} />
-                        <span className="font-medium">{social.label}</span>
+                        <Icon size={24} className="flex-shrink-0" />
+                        <div className="flex flex-col items-center text-center">
+                          <span className="font-semibold text-white text-xs">{social.label}</span>
+                          <span className="text-xs text-gray-400 mt-0.5">{social.subtitle}</span>
+                        </div>
                       </a>
                     )
                   })}
@@ -318,16 +321,16 @@ import { SiLeetcode } from "react-icons/si"
               </div>
 
               {/* Quick Info */}
-              <div className="glass p-6 md:p-8 rounded-2xl">
-                <h3 className="text-xl font-bold text-textPrimary mb-4">Let&apos;s Collaborate</h3>
-                <p className="text-textSecondary leading-relaxed mb-4">
+              <div className="glass p-4 md:p-6 rounded-2xl">
+                <h3 className="text-2xl font-bold text-textPrimary mb-4">Let&apos;s Collaborate</h3>
+                <p className="text-textSecondary leading-relaxed mb-4 text-base">
                   I&apos;m always excited to work on new projects and bring innovative ideas to life. 
                   Whether you need a full-stack web application, a responsive website, or technical consultation, 
                   I&apos;m here to help.
                 </p>
                 <div className="flex items-center gap-2 text-accent">
-                  <CheckCircle size={16} />
-                  <span className="text-sm font-medium">Usually responds within 24 hours</span>
+                  <CheckCircle size={20} />
+                  <span className="text-base font-medium">Usually responds within 24 hours</span>
                 </div>
               </div>
             </div>

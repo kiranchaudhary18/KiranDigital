@@ -19,11 +19,11 @@ const Sidebar = () => {
   ]
 
   const socialLinks = [
-    { icon: Github, href: 'https://github.com/kiranchaudhary18', label: 'GitHub' },
-    { icon: Linkedin, href: 'https://www.linkedin.com/in/chaudharykiran16/', label: 'LinkedIn' },
-    { icon: Twitter, href: 'https://x.com/dekaliya_kiran', label: 'Twitter' },
-    { icon: SiLeetcode, href: 'https://leetcode.com/u/KiranChaudhary/', label: 'LeetCode' },
-    { icon: Mail, href: 'mailto:kiran.chaudhary.cg@gmail.com', label: 'Email' },
+    { icon: Github, href: 'https://github.com/kiranchaudhary18', label: 'GitHub', subtitle: '70+ repos' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/in/chaudharykiran16/', label: 'LinkedIn', subtitle: '5600+ connections' },
+    { icon: Twitter, href: 'https://x.com/dekaliya_kiran', label: 'Twitter', subtitle: 'Tech updates' },
+    { icon: SiLeetcode, href: 'https://leetcode.com/u/KiranChaudhary/', label: 'LeetCode', subtitle: '300+ problems solved' },
+    { icon: Mail, href: 'mailto:kiran.chaudhary.cg@gmail.com', label: 'Email', subtitle: 'Contact me' },
   ]
 
   useEffect(() => {
@@ -128,8 +128,9 @@ const Sidebar = () => {
                   >
                     <Icon size={20} />
                     {/* Social link tooltip */}
-                    <div className="hidden md:block absolute left-full ml-4 px-2 py-1 bg-cardBg text-textPrimary text-sm rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-50">
-                      {link.label}
+                    <div className="hidden md:block absolute left-full ml-4 px-3 py-2 bg-cardBg text-textPrimary rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-50">
+                      <div className="text-sm font-medium">{link.label}</div>
+                      <div className="text-xs text-gray-400">{link.subtitle}</div>
                     </div>
                   </a>
                 )
