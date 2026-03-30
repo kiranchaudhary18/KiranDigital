@@ -24,8 +24,13 @@ const Loader = () => {
     <div className="fixed inset-0 bg-darkBg z-50 flex flex-col items-center justify-center">
       {/* Animated Logo */}
       <div className="mb-8 relative">
-        <div className="w-24 h-24 rounded-full bg-gradient-to-br from-primary via-secondary to-accent flex items-center justify-center text-white font-bold text-4xl shadow-2xl shadow-primary/50 animate-pulse">
-          KD
+        <div className="relative w-24 h-24 rounded-full flex items-center justify-center text-white font-bold text-4xl shadow-2xl shadow-primary/50 animate-pulse overflow-hidden bg-gradient-to-br from-primary via-secondary to-accent">
+          <img 
+            src="https://res.cloudinary.com/dnbayngfx/image/upload/v1774849233/Gemini_Generated_Image_2380m42380m42380_gb2nnh.png"
+            alt="Kiran Dekaliya"
+            className="w-full h-full object-cover rounded-full"
+            loading="eager"
+          />
         </div>
         <div className="absolute inset-0 w-24 h-24 rounded-full bg-gradient-to-br from-primary via-secondary to-accent blur-xl opacity-50 animate-ping"></div>
       </div>

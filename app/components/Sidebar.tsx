@@ -73,8 +73,13 @@ const Sidebar = () => {
         <div className="flex flex-col h-full py-8 px-4">
           {/* Logo */}
           <div className="flex justify-center mb-12">
-            <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary via-secondary to-accent flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-primary/50">
-              KD
+            <div className="relative w-12 h-12 rounded-full overflow-hidden shadow-lg shadow-primary/50 bg-gradient-to-br from-primary via-secondary to-accent flex items-center justify-center">
+              <img 
+                src="https://res.cloudinary.com/dnbayngfx/image/upload/v1774849233/Gemini_Generated_Image_2380m42380m42380_gb2nnh.png"
+                alt="Kiran Dekaliya"
+                className="w-full h-full object-cover rounded-full"
+                loading="eager"
+              />
             </div>
           </div>
 

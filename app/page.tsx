@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import dynamic from 'next/dynamic'
 import Sidebar from './components/Sidebar'
 import Hero from './components/Hero'
 import About from './components/About'
@@ -9,9 +10,11 @@ import Skills from './components/Skills'
 import Projects from './components/Projects'
 import Certificates from './components/Certificates'
 import Contact from './components/Contact'
-import ScrollToTop from './components/ScrollToTop'
-import Loader from './components/Loader'
 import CursorTrail from './components/CursorTrail'
+
+// Dynamically import components that use window or have SSR issues with ssr: false
+const ScrollToTop = dynamic(() => import('./components/ScrollToTop'), { ssr: false })
+const Loader = dynamic(() => import('./components/Loader'), { ssr: false })
 
 export default function HomePage() {
   const [loading, setLoading] = useState(true)
