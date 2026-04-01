@@ -33,10 +33,10 @@ export const metadata: Metadata = {
     'Responsive Web Design',
     'Modern Web Technologies'
   ],
-  authors: [{ name: 'Kiran Dekaliya', url: 'https://kirandekaliya.in' }],
+  authors: [{ name: 'Kiran Dekaliya', url: 'https://www.kirandekaliya.in' }],
   creator: 'Kiran Dekaliya',
   publisher: 'Kiran Dekaliya',
-  metadataBase: new URL('https://kirandekaliya.in'),
+  metadataBase: new URL('https://www.kirandekaliya.in'),
   alternates: {
     canonical: '/',
   },
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://kirandekaliya.in',
+    url: 'https://www.kirandekaliya.in',
     title: 'Kiran Dekaliya - Full Stack Developer | Modern Web Solutions',
     description: 'Experienced Full Stack Developer specializing in React, Next.js, Node.js, and MongoDB. Creating innovative web applications with modern technologies.',
     siteName: 'Kiran Dekaliya - Portfolio',
@@ -163,13 +163,13 @@ export default function RootLayout({
               '@graph': [
                 {
                   '@type': 'Person',
-                  '@id': 'https://kirandekaliya.in/#person',
+                  '@id': 'https://www.kirandekaliya.in/#person',
                   name: 'Kiran Dekaliya',
                   alternateName: 'Kiran Chaudhary',
                   jobTitle: 'Full Stack Developer',
                   description: 'Experienced Full Stack Developer specializing in React, Next.js, Node.js, and MongoDB',
-                  url: 'https://kirandekaliya.in',
-                  image: 'https://kirandekaliya.in/profile-image.jpg',
+                  url: 'https://www.kirandekaliya.in',
+                  image: 'https://www.kirandekaliya.in/profile-image.jpg',
                   sameAs: [
                     'https://github.com/kiranchaudhary18',
                     'https://linkedin.com/in/kiran-dekaliya',
@@ -197,27 +197,27 @@ export default function RootLayout({
                 },
                 {
                   '@type': 'WebSite',
-                  '@id': 'https://kirandekaliya.in/#website',
-                  url: 'https://kirandekaliya.in',
+                  '@id': 'https://www.kirandekaliya.in/#website',
+                  url: 'https://www.kirandekaliya.in',
                   name: 'Kiran Dekaliya - Full Stack Developer Portfolio',
                   description: 'Portfolio website showcasing full stack development projects and skills',
                   publisher: {
-                    '@id': 'https://kirandekaliya.in/#person'
+                    '@id': 'https://www.kirandekaliya.in/#person'
                   },
                   inLanguage: 'en-US'
                 },
                 {
                   '@type': 'Organization',
-                  '@id': 'https://kirandekaliya.in/#organization',
+                  '@id': 'https://www.kirandekaliya.in/#organization',
                   name: 'Kiran Dekaliya',
                   alternateName: 'Kiran Chaudhary',
-                  url: 'https://kirandekaliya.in',
+                  url: 'https://www.kirandekaliya.in',
                   logo: {
                     '@type': 'ImageObject',
-                    url: 'https://kirandekaliya.in/logo.png'
+                    url: 'https://www.kirandekaliya.in/logo.png'
                   },
                   founder: {
-                    '@id': 'https://kirandekaliya.in/#person'
+                    '@id': 'https://www.kirandekaliya.in/#person'
                   }
                 }
               ]
