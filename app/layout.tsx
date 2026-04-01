@@ -38,8 +38,8 @@ export const metadata: Metadata = {
   publisher: 'Kiran Dekaliya',
   metadataBase: new URL('https://www.kirandekaliya.in'),
   alternates: {
-    canonical: '/',
-  },
+  canonical: 'https://www.kirandekaliya.in/',
+},
   category: 'Portfolio',
   classification: 'Business',
   openGraph: {
