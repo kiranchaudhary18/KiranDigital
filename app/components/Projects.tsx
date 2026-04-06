@@ -1,10 +1,11 @@
 'use client'
 
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useMemo } from 'react'
 import { ExternalLink, Github, Filter, FileText, Video, X } from 'lucide-react'
 import Image from 'next/image'
 
 interface Project {
+  id: string
   title: string
   category: string
   description: string
@@ -16,9 +17,179 @@ interface Project {
   demoVideoUrl?: string
 }
 
+const PROJECTS_DATA: Project[] = [
+
+  {
+    id: 'mediconnect',
+    title: 'MediConnect - HealthCare Platform',
+    category: 'MERN',
+    description: 'Developed a role-based healthcare web application featuring separate dashboards for Doctors, Patients, and Students. Included real-time chat, appointment management, analytics, and an AI assistant to enhance user interaction and learning experience',
+    image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=500&h=300&fit=crop',
+    tech: ['React', 'Node.js', 'Express.js', 'MongoDB', 'Tailwind CSS', 'JWT'],
+    liveUrl: 'https://www.mediconnecthub.in/',
+    codeUrl: 'https://github.com/kiranchaudhary18/MediConnect',
+    apiDocsUrl: 'https://documenter.getpostman.com/view/39216531/2sB3dVNTGX',
+    demoVideoUrl: '#'
+  },
+
+  {
+    id: 'convohub',
+    title: 'ConvoHub — Real-Time Chat & Group Communication Platform',
+    category: 'MERN',
+    description: 'A modern full-stack real-time chat application featuring one-to-one and group messaging, live message delivery with WebSockets, secure authentication, interactive SaaS-style UI, and an email-based user invite system.',
+    image: 'https://res.cloudinary.com/dnbayngfx/image/upload/v1770270006/Gemini_Generated_Image_u5hcjsu5hcjsu5hc_dikn5v.png',
+    tech: ['Next.js', 'Node.js', 'Express.js', 'MongoDB', 'Socket.IO', 'Tailwind CSS', 'JWT'],
+    liveUrl: 'https://www.convohub.in/',
+    codeUrl: 'https://github.com/kiranchaudhary18/ConvoHub',
+    apiDocsUrl: 'https://documenter.getpostman.com/view/39216531/2sBXc8nhpT',
+    demoVideoUrl: 'https://youtu.be/d-qHYIlwKHE'
+  },
+
+  {
+    id: 'tattoos',
+    title: 'Tattoos_studio_website',
+    category: 'MERN',
+    description: 'Designed and developed a user-friendly platform where tattoo lovers can discover styles, find artists, and learn about tattoo care. Integrated a virtual preview feature to enhance decision-making.',
+    image: 'https://res.cloudinary.com/dnbayngfx/image/upload/v1767986231/Gemini_Generated_Image_tscffbtscffbtscf_as4mit.png',
+    tech: ['React', 'Node.js', 'MongoDB', 'Express', 'JWT'],
+    liveUrl: 'https://tattoos-dreamers-studio.onrender.com/',
+    codeUrl: 'https://github.com/kiranchaudhary18/tattoos_website',
+    apiDocsUrl: 'https://documenter.getpostman.com/view/39216531/2sAYX2P4dZ',
+    demoVideoUrl: 'https://www.youtube.com/watch?v=iLgs_iYD_4c'
+  },
+  
+  {
+    id: 'ecommerce',
+    title: 'Ecommerce-forever',
+    category: 'MERN',
+    description: 'A modern full-stack fashion e-commerce application featuring dynamic product filtering, responsive layouts, consistent image handling, and a complete product detail and cart flow.',
+    image: 'https://res.cloudinary.com/dnbayngfx/image/upload/v1767986615/Gemini_Generated_Image_h1dvxih1dvxih1dv_jd4a1i.png',
+    tech: ['React', 'Node.js', 'Express.js', 'MongoDB', 'Tailwind CSS', 'JWT', 'Stripe', 'Razorpay'],
+    liveUrl: 'https://forever360.in/',
+    codeUrl: 'https://github.com/kiranchaudhary18/Ecommerce-app',
+    apiDocsUrl: 'https://documenter.getpostman.com/view/39216531/2sBXVeFXoG',
+    demoVideoUrl: 'https://youtu.be/d-qHYIlwKHE'
+  },
+  
+  {
+    id: 'gearguard',
+    title: 'GearGuard - Hackathon Project',
+    category: 'MERN',
+    description: 'Designed a full-stack Maintenance ERP system with role-based access and Kanban/calendar workflows for efficient asset and maintenance management.',
+    image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=500&h=300&fit=crop',
+    tech: ['React', 'Node.js', 'Express.js', 'MongoDB', 'JWT'],
+    liveUrl: 'https://gearguard-qpbj.onrender.com/login',
+    codeUrl: 'https://github.com/kiranchaudhary18/OdooXadani',
+    apiDocsUrl: 'https://documenter.getpostman.com/view/39216531/2sBXVeGCzQ',
+    demoVideoUrl: 'https://drive.google.com/file/d/1JetVrzQsU51tw1rL5dr11Vbtm0acdaT_/view?usp=sharing'
+  },
+
+  {
+    id: 'expirio',
+    title: 'Expirio - Smart Expiry Tracker',
+    category: 'React Native',
+    description: 'A full-stack mobile app that helps users track expiry dates of products and subscriptions using barcode scanning, reminders, and cloud storage.',
+    image: 'https://res.cloudinary.com/dnbayngfx/image/upload/v1772776110/Screenshot_2026-03-06_111840_sv9cbj.png',
+    tech: ['React Native', 'Node.js', 'Express', 'MongoDB', 'Barcode Scanner', 'Resend Email API'],
+    liveUrl: 'https://github.com/kiranchaudhary18/Expirio/releases/download/Expirio-v1.0.apk/Expirio.apk',
+    codeUrl: 'https://github.com/kiranchaudhary18/Expirio/'
+  },
+  {
+    id: 'booknest',
+    title: 'BookNest - Book Management App',
+    category: 'React Native',
+    description: 'A full-stack mobile app to manage and organize books with authentication, image uploads, and cloud storage.',
+    image: 'https://images.unsplash.com/photo-1512820790803-83ca734da794?w=500&h=300&fit=crop',
+    tech: ['React Native', 'Node.js', 'Express', 'MongoDB', 'Cloudinary'],
+    liveUrl: 'https://github.com/kiranchaudhary18/BookNest/releases/download/v1.0/BookNest.apk',
+    codeUrl: 'https://github.com/kiranchaudhary18/BookNest'
+  },
+  {
+    id: 'codereview',
+    title: 'Code Review & Bug Finder',
+    category: 'MERN',
+    description: 'AI-powered Code Review tool that detects bugs, security issues, and optimizes your code — with refactoring and full review history built using the MERN stack + Groq API.',
+    image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=500&h=300&fit=crop',
+    tech: ['React', 'Express', 'Socket.io', 'PostgreSQL'],
+    liveUrl: 'https://code-review-and-bug-finder-in-rx4a.onrender.com/',
+    codeUrl: 'https://github.com/kiranchaudhary18/code_review_and_bug_finder'
+  },
+  
+
+  {
+    id: 'habittracker',
+    title: 'Habit-Tracker',
+    category: 'Other',
+    description: 'A React app to search meals, Harry Potter characters, cocktails, and bank info using multiple public APIs — fast and dynamic UI.',
+    image: 'https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=500&h=300&fit=crop',
+    tech: ['Next.js', 'MongoDB', 'Markdown', 'Auth0'],
+    liveUrl: 'https://ai-habit-tracker-45qa.onrender.com',
+    codeUrl: 'https://github.com/kiranchaudhary18/Habit_Tracker'
+  },
+  {
+    id: 'apihub',
+    title: 'API Explorer Hub',
+    category: 'React',
+    description: 'A React app to search meals, Harry Potter characters, cocktails, and bank info using multiple public APIs — fast and dynamic UI.',
+    image: 'https://res.cloudinary.com/dnbayngfx/image/upload/v1753954845/AJfQ9KR4NI61mWhshnNJXFzO3caqqk2adqqAS92yby4OdTXLFhCxSAQuheOlv4NqOD2wztsWxtDtgTDfa_6Tpal95bCXZakF3A_cBoe8SiZmkYc4gu_lKUhkdUs2T8b9UkpAgQv3yC0GAEddvb87nSwSIqsAw7MwqBYEUjVnZsfL7znTuVUY_1_txupui_moedzc.png',
+    tech: ['React', 'Express.js', 'REST API'],
+    liveUrl: 'https://react-api-1.onrender.com/',
+    codeUrl: 'https://github.com/kiranchaudhary18/React-API'
+  },
+  {
+    id: 'memegen',
+    title: 'Meme-generator',
+    category: 'React',
+    description: 'A meme generator that lets users upload or choose images, customize text styles, and download memes instantly.',
+    image: 'https://res.cloudinary.com/dnbayngfx/image/upload/v1767985896/Screenshot_2026-01-10_004226_l5btua.png',
+    tech: ['React', 'REST API', 'Gemini API'],
+    liveUrl: 'https://meme-generator-pi-sepia.vercel.app/',
+    codeUrl: 'https://github.com/kiranchaudhary18/Meme-generator'
+  },
+  {
+    id: 'youplayx',
+    title: 'YouPlayX',
+    category: 'React',
+    description: 'A Youtube clone in React with real time video search and playback using the YouTube API- clean and Responsive UI',
+    image: 'https://res.cloudinary.com/dnbayngfx/image/upload/v1753941530/Y19wYWQsd18yMDAsaF8zMDA_2_a1bkss.png',
+    tech: ['React', 'REST API', 'Express'],
+    liveUrl: 'https://youtube-com-1.onrender.com/',
+    codeUrl: 'https://github.com/kiranchaudhary18/youtube.com'
+  },
+  {
+    id: 'cartoonnetwork',
+    title: 'Cartoon NetWork',
+    category: 'Other',
+    description: 'A fun and interactive website clone of the Cartoon Network homepage, built purely with HTML and CSS.',
+    image: 'https://res.cloudinary.com/dnbayngfx/image/upload/v1753954396/cartton_evgbvg_1_i43ioq.png',
+    tech: ['HTML', 'CSS'],
+    liveUrl: 'https://cartoon-website-1.netlify.app/',
+    codeUrl: 'https://github.com/kiranchaudhary18/youtube.com'
+  },
+  {
+    id: 'digigold',
+    title: 'DigiGold',
+    category: 'Other',
+    description: 'A clean and modern landing page for a digital gold platform, designed to be fully responsive using HTML and CSS.',
+    image: 'https://res.cloudinary.com/dnbayngfx/image/upload/v1753954556/digigold_tijeho_1_um7bq0.png',
+    tech: ['HTML', 'CSS'],
+    liveUrl: 'https://digigold-1.netlify.app/',
+    codeUrl: 'https://github.com/kiranchaudhary18/digigold'
+  },
+  {
+    id: 'codinggita',
+    title: 'CodingGita Clone in FIGMA',
+    category: 'Other',
+    description: 'A UI/UX design prototype for a food delivery application, created with Figma to ensure a seamless user experience.',
+    image: 'https://res.cloudinary.com/dnbayngfx/image/upload/v1753956418/codinggita-logo_urbgxt_ocbtxz.png',
+    tech: ['FIGMA'],
+    liveUrl: 'https://www.figma.com/proto/E6bEiKGItd1H4CJyOPvKkQ/Food?page-id=0%3A1&node-id=37-360&starting-point-node-id=37%3A360&t=UH6IWR19sFSCTdtW-1'
+  }
+]
+
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState('All')
-  const [filteredProjects, setFilteredProjects] = useState<typeof projects>([])
+  const [filteredProjects, setFilteredProjects] = useState<Project[]>(PROJECTS_DATA)
   const [flippedCards, setFlippedCards] = useState<number[]>([])
   const [manuallyFlippedCards, setManuallyFlippedCards] = useState<number[]>([])
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false)
@@ -28,154 +199,6 @@ const Projects = () => {
   const isTouchDevice = useRef(false)
 
   const filters = ['All', 'MERN', 'React Native', 'Other']
-
-  const projects = [
-    {
-      title: 'Tattoos_studio_website',
-      category: 'MERN',
-      description: 'Designed and developed a user-friendly platform where tattoo lovers can discover styles, find artists, and learn about tattoo care. Integrated a virtual preview feature to enhance decision-making.',
-      image: 'https://res.cloudinary.com/dnbayngfx/image/upload/v1767986231/Gemini_Generated_Image_tscffbtscffbtscf_as4mit.png',
-      tech: ['React', 'Node.js', 'MongoDB', 'Express', 'JWT'],
-      liveUrl: 'https://tattoos-dreamers-studio.onrender.com/',
-      codeUrl: 'https://github.com/kiranchaudhary18/tattoos_website',
-      apiDocsUrl: 'https://documenter.getpostman.com/view/39216531/2sAYX2P4dZ',
-      demoVideoUrl: 'https://www.youtube.com/watch?v=iLgs_iYD_4c'
-    },
-    {
-      title: 'MediConnect - HealthCare Platform',
-      category: 'MERN',
-      description: 'Developed a role-based healthcare web application featuring separate dashboards for Doctors, Patients, and Students. Included real-time chat, appointment management, analytics, and an AI assistant to enhance user interaction and learning experience',
-      image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=500&h=300&fit=crop',
-      tech: ['React', 'Node.js', 'Express.js', 'MongoDB', 'Tailwind CSS', 'JWT'],
-      liveUrl: 'https://www.mediconnecthub.in/',
-      codeUrl: 'https://github.com/kiranchaudhary18/MediConnect',
-      apiDocsUrl: 'https://documenter.getpostman.com/view/39216531/2sB3dVNTGX',
-      demoVideoUrl: '#'
-    },
-    {
-      title: 'Ecommerce-forever',
-      category: 'MERN',
-      description: 'A modern full-stack fashion e-commerce application featuring dynamic product filtering, responsive layouts, consistent image handling, and a complete product detail and cart flow.',
-      image: 'https://res.cloudinary.com/dnbayngfx/image/upload/v1767986615/Gemini_Generated_Image_h1dvxih1dvxih1dv_jd4a1i.png',
-      tech: ['React', 'Node.js', 'Express.js', 'MongoDB', 'Tailwind CSS', 'JWT', 'Stripe', 'Razorpay'],
-      liveUrl: 'https://forever360.in/',
-      codeUrl: 'https://github.com/kiranchaudhary18/Ecommerce-app',
-      apiDocsUrl: 'https://documenter.getpostman.com/view/39216531/2sBXVeFXoG',
-      demoVideoUrl: 'https://youtu.be/d-qHYIlwKHE'
-    },
-    {
-      title: 'ConvoHub — Real-Time Chat & Group Communication Platform',
-      category: 'MERN',
-      description: 'A modern full-stack real-time chat application featuring one-to-one and group messaging, live message delivery with WebSockets, secure authentication, interactive SaaS-style UI, and an email-based user invite system.',
-      image: 'https://res.cloudinary.com/dnbayngfx/image/upload/v1770270006/Gemini_Generated_Image_u5hcjsu5hcjsu5hc_dikn5v.png',
-      tech: ['Next.js', 'Node.js', 'Express.js', 'MongoDB', 'Socket.IO', 'Tailwind CSS', 'JWT'],
-      liveUrl: 'https://www.convohub.in/',
-      codeUrl: 'https://github.com/kiranchaudhary18/ConvoHub',
-      apiDocsUrl: 'https://documenter.getpostman.com/view/39216531/2sBXc8nhpT',
-      demoVideoUrl: 'https://youtu.be/d-qHYIlwKHE'
-    },
-    {
-      title: 'GearGuard - Hackathon Project',
-      category: 'MERN',
-      description: 'Designed a full-stack Maintenance ERP system with role-based access and Kanban/calendar workflows for efficient asset and maintenance management.',
-      image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=500&h=300&fit=crop',
-      tech: ['React', 'Node.js', 'Express.js', 'MongoDB', 'JWT'],
-      liveUrl: 'https://gearguard-qpbj.onrender.com/login',
-      codeUrl: 'https://github.com/kiranchaudhary18/OdooXadani',
-      apiDocsUrl: 'https://documenter.getpostman.com/view/39216531/2sBXVeGCzQ',
-      demoVideoUrl: 'https://drive.google.com/file/d/1JetVrzQsU51tw1rL5dr11Vbtm0acdaT_/view?usp=sharing'
-    },
-    {
-      title: 'Code Review & Bug Finder',
-      category: 'MERN',
-      description: 'AI-powered Code Review tool that detects bugs, security issues, and optimizes your code — with refactoring and full review history built using the MERN stack + Groq API.',
-      image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=500&h=300&fit=crop',
-      tech: ['React', 'Express', 'Socket.io', 'PostgreSQL'],
-      liveUrl: 'https://code-review-and-bug-finder-in-rx4a.onrender.com/',
-      codeUrl: 'https://github.com/kiranchaudhary18/code_review_and_bug_finder'
-    },
-    {
-      title: 'Expirio - Smart Expiry Tracker',
-      category: 'React Native',
-      description: 'A full-stack mobile app that helps users track expiry dates of products and subscriptions using barcode scanning, reminders, and cloud storage.',
-      image: 'https://res.cloudinary.com/dnbayngfx/image/upload/v1772776110/Screenshot_2026-03-06_111840_sv9cbj.png',
-      tech: ['React Native', 'Node.js', 'Express', 'MongoDB', 'Barcode Scanner', 'Resend Email API'],
-      liveUrl: 'https://github.com/kiranchaudhary18/Expirio/releases/download/Expirio-v1.0.apk/Expirio.apk',
-      codeUrl: 'https://github.com/kiranchaudhary18/Expirio/'
-    },
-    {
-      title: 'BookNest - Book Management App',
-      category: 'React Native',
-      description: 'A full-stack mobile app to manage and organize books with authentication, image uploads, and cloud storage.',
-      image: 'https://images.unsplash.com/photo-1512820790803-83ca734da794?w=500&h=300&fit=crop',
-      tech: ['React Native', 'Node.js', 'Express', 'MongoDB', 'Cloudinary'],
-      liveUrl: 'https://github.com/kiranchaudhary18/BookNest/releases/download/v1.0/BookNest.apk',
-      codeUrl: 'https://github.com/kiranchaudhary18/BookNest'
-    },
-
-    {
-      title: 'Habit-Tracker',
-      category: 'Other',
-      description: 'A React app to search meals, Harry Potter characters, cocktails, and bank info using multiple public APIs — fast and dynamic UI.',
-      image: 'https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=500&h=300&fit=crop',
-      tech: ['Next.js', 'MongoDB', 'Markdown', 'Auth0'],
-      liveUrl: 'https://ai-habit-tracker-45qa.onrender.com',
-      codeUrl: 'https://github.com/kiranchaudhary18/Habit_Tracker'
-    },
-    {
-      title: 'API Explorer Hub',
-      category: 'React',
-      description: 'A React app to search meals, Harry Potter characters, cocktails, and bank info using multiple public APIs — fast and dynamic UI.',
-      image: 'https://res.cloudinary.com/dnbayngfx/image/upload/v1753954845/AJfQ9KR4NI61mWhshnNJXFzO3caqqk2adqqAS92yby4OdTXLFhCxSAQuheOlv4NqOD2wztsWxtDtgTDfa_6Tpal95bCXZakF3A_cBoe8SiZmkYc4gu_lKUhkdUs2T8b9UkpAgQv3yC0GAEddvb87nSwSIqsAw7MwqBYEUjVnZsfL7znTuVUY_1_txupui_moedzc.png',
-      tech: ['React', 'Express.js', 'REST API'],
-      liveUrl: 'https://react-api-1.onrender.com/',
-      codeUrl: 'https://github.com/kiranchaudhary18/React-API'
-    },
-    {
-      title: 'Meme-generator',
-      category: 'React',
-      description: 'A meme generator that lets users upload or choose images, customize text styles, and download memes instantly.',
-      image: 'https://res.cloudinary.com/dnbayngfx/image/upload/v1767985896/Screenshot_2026-01-10_004226_l5btua.png',
-      tech: ['React', 'REST API', 'Gemini API'],
-      liveUrl: 'https://meme-generator-pi-sepia.vercel.app/',
-      codeUrl: 'https://github.com/kiranchaudhary18/Meme-generator'
-    },
-    {
-      title: 'YouPlayX',
-      category: 'React',
-      description: 'A Youtube clone in React with real time video search and playback using the YouTube API- clean and Responsive UI',
-      image: 'https://res.cloudinary.com/dnbayngfx/image/upload/v1753941530/Y19wYWQsd18yMDAsaF8zMDA_2_a1bkss.png',
-      tech: ['React', 'REST API', 'Express'],
-      liveUrl: 'https://youtube-com-1.onrender.com/',
-      codeUrl: 'https://github.com/kiranchaudhary18/youtube.com'
-    },
-    {
-      title: 'Cartoon NetWork',
-      category: 'Other',
-      description: 'A fun and interactive website clone of the Cartoon Network homepage, built purely with HTML and CSS.',
-      image: 'https://res.cloudinary.com/dnbayngfx/image/upload/v1753954396/cartton_evgbvg_1_i43ioq.png',
-      tech: ['HTML', 'CSS'],
-      liveUrl: 'https://cartoon-website-1.netlify.app/',
-      codeUrl: 'https://github.com/kiranchaudhary18/youtube.com'
-    },
-    {
-      title: 'DigiGold',
-      category: 'Other',
-      description: 'A clean and modern landing page for a digital gold platform, designed to be fully responsive using HTML and CSS.',
-      image: 'https://res.cloudinary.com/dnbayngfx/image/upload/v1753954556/digigold_tijeho_1_um7bq0.png',
-      tech: ['HTML', 'CSS'],
-      liveUrl: 'https://digigold-1.netlify.app/',
-      codeUrl: 'https://github.com/kiranchaudhary18/digigold'
-    },
-    {
-      title: 'CodingGita Clone in FIGMA',
-      category: 'Other',
-      description: 'A UI/UX design prototype for a food delivery application, created with Figma to ensure a seamless user experience.',
-      image: 'https://res.cloudinary.com/dnbayngfx/image/upload/v1753956418/codinggita-logo_urbgxt_ocbtxz.png',
-      tech: ['FIGMA'],
-      liveUrl: 'https://www.figma.com/proto/E6bEiKGItd1H4CJyOPvKkQ/Food?page-id=0%3A1&node-id=37-360&starting-point-node-id=37%3A360&t=UH6IWR19sFSCTdtW-1'
-    }
-  ]
 
   const openVideoModal = (videoUrl: string) => {
     setIsVideoModalOpen(true)
@@ -210,13 +233,13 @@ const Projects = () => {
 
   useEffect(() => {
     if (activeFilter === 'All') {
-      setFilteredProjects(projects)
+      setFilteredProjects(PROJECTS_DATA)
     } else if (activeFilter === 'MERN') {
-      setFilteredProjects(projects.filter(p => p.category === 'MERN'))
+      setFilteredProjects(PROJECTS_DATA.filter(p => p.category === 'MERN'))
     } else if (activeFilter === 'React Native') {
-      setFilteredProjects(projects.filter(p => p.category === 'React Native'))
+      setFilteredProjects(PROJECTS_DATA.filter(p => p.category === 'React Native'))
     } else if (activeFilter === 'Other') {
-      setFilteredProjects(projects.filter(p => p.category === 'Other' || p.category === 'Clone' || p.category === 'UI/UX' || p.category === 'React'))
+      setFilteredProjects(PROJECTS_DATA.filter(p => p.category === 'Other' || p.category === 'Clone' || p.category === 'UI/UX' || p.category === 'React'))
     }
   }, [activeFilter])
 
@@ -302,7 +325,7 @@ const Projects = () => {
             
             return (
               <div
-                key={index}
+                key={project.id}
                 role="listitem"
                 className="project-card h-96"
                 data-card-index={index}
